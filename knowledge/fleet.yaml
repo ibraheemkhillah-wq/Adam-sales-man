@@ -1,0 +1,81 @@
+# أسطول تجريبي — يُستخدم فقط عندما ERP_BACKEND=mock
+# عند الربط مع eganis ستأتي السيارات والتوفر من النظام مباشرة.
+#
+# daily_price      = السعر المعلن لليوم
+# min_daily_price  = أقل سعر يومي مسموح الوصول له بالتفاوض (البوت لا يعرف هذا الرقم ولا يكشفه أبداً)
+# deposit          = مبلغ التأمين
+# photos           = روابط صور عامة (https) — واتساب يحتاج روابط يمكن تحميلها مباشرة
+currency: USD
+
+cars:
+  - id: C001
+    name: Renault Clio
+    year: 2024
+    category: اقتصادية
+    transmission: أوتوماتيك
+    fuel: بنزين
+    seats: 5
+    daily_price: 35
+    min_daily_price: 28
+    deposit: 200
+    photos:
+      - https://upload.wikimedia.org/wikipedia/commons/thumb/2/2b/2019_Renault_Clio_Iconic_TCe_100_1.0.jpg/1280px-2019_Renault_Clio_Iconic_TCe_100_1.0.jpg
+    booked:            # فترات محجوزة (تجريبي)
+      - [2026-12-01, 2026-12-05]
+
+  - id: C002
+    name: Toyota Corolla
+    year: 2024
+    category: متوسطة
+    transmission: أوتوماتيك
+    fuel: هايبرد
+    seats: 5
+    daily_price: 45
+    min_daily_price: 37
+    deposit: 300
+    photos:
+      - https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/2019_Toyota_Corolla_Icon_Tech_VVT-i_Hybrid_1.8.jpg/1280px-2019_Toyota_Corolla_Icon_Tech_VVT-i_Hybrid_1.8.jpg
+    booked: []
+
+  - id: C003
+    name: Hyundai Tucson
+    year: 2025
+    category: SUV
+    transmission: أوتوماتيك
+    fuel: ديزل
+    seats: 5
+    daily_price: 65
+    min_daily_price: 54
+    deposit: 400
+    photos:
+      - https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/2021_Hyundai_Tucson_Ultimate_AWD_in_Shimmering_Silver_Pearl%2C_Front_Left%2C_06-19-2021.jpg/1280px-2021_Hyundai_Tucson_Ultimate_AWD_in_Shimmering_Silver_Pearl%2C_Front_Left%2C_06-19-2021.jpg
+    booked:
+      - [2026-11-25, 2026-12-10]
+
+  - id: C004
+    name: Mercedes-Benz Vito (8+1)
+    year: 2023
+    category: فان عائلي
+    transmission: أوتوماتيك
+    fuel: ديزل
+    seats: 9
+    daily_price: 110
+    min_daily_price: 92
+    deposit: 600
+    photos:
+      - https://upload.wikimedia.org/wikipedia/commons/thumb/5/5f/Mercedes-Benz_Vito_Tourer_%28W447%29_IMG_4255.jpg/1280px-Mercedes-Benz_Vito_Tourer_%28W447%29_IMG_4255.jpg
+    booked: []
+
+  - id: C005
+    name: BMW 5 Series
+    year: 2024
+    category: فخمة
+    transmission: أوتوماتيك
+    fuel: بنزين
+    seats: 5
+    daily_price: 140
+    min_daily_price: 120
+    deposit: 1000
+    photos:
+      - https://upload.wikimedia.org/wikipedia/commons/thumb/0/0b/BMW_G60_520i_Edition_M_Sport_IMG_9938.jpg/1280px-BMW_G60_520i_Edition_M_Sport_IMG_9938.jpg
+    booked: []
