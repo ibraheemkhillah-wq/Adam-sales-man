@@ -84,9 +84,9 @@ TOOLS = [
         "input_schema": _schema({"car_id": _CAR}, ["car_id"]),
     },
     {
-        "name": "create_booking",
-        "description": "Create the booking in the company system. Only after the customer explicitly confirmed "
-                       "the summary. The price used is the official/agreed price, not one you provide.",
+        "name": "submit_booking_request",
+        "description": "Send a booking request to the team for confirmation. Only after the customer explicitly "
+                       "confirmed the summary. The price used is the official/agreed price, not one you provide.",
         "strict": True,
         "input_schema": _schema(
             {"car_id": _CAR, "start_date": _DATE, "end_date": _DATE,
@@ -159,7 +159,7 @@ async def _run_tool(name: str, inp: dict, customer_id: str, reply: AgentReply) -
         for i, url in enumerate(car.photos[:4]):
             reply.photos.append((url, car.name if i == 0 else ""))
         return {"sent": min(len(car.photos), 4)}
-    if name == "create_booking":
+    if name == "submit_booking_request":
         start, end = _dates(inp)
         car = _car(inp["car_id"])
         total = pricing.booking_price(customer_id, car, start, end)
@@ -168,12 +168,13 @@ async def _run_tool(name: str, inp: dict, customer_id: str, reply: AgentReply) -
             customer_phone=customer_id, total_price=total, pickup_location=inp["pickup_location"],
             dropoff_location=inp["dropoff_location"], notes=inp.get("notes", "")))
         if result.ok:
-            await notify.notify("new_booking", customer_id, f"{inp['customer_name']} حجز {car.name}", {
+            await notify.notify("booking_request", customer_id, f"طلب حجز من {inp['customer_name']}: {car.name}", {
                 "رقم الحجز": result.booking_ref, "من": start.isoformat(), "إلى": end.isoformat(),
                 "المبلغ": f"{total} {erp.currency}", "الاستلام": inp["pickup_location"],
                 "التسليم": inp["dropoff_location"], "ملاحظات": inp.get("notes", "") or "-"})
-        return {"ok": result.ok, "booking_ref": result.booking_ref, "total_price": total,
-                "currency": erp.currency, "deposit": car.deposit, "message": result.message}
+        return {"ok": result.ok, "status": "pending_team_confirmation" if result.ok else "failed",
+                "request_ref": result.booking_ref, "total_price": total, "currency": erp.currency,
+                "deposit": car.deposit, "message": result.message}
     if name == "notify_team":
         await notify.notify(inp["kind"], customer_id, inp["summary"])
         return {"notified": True}

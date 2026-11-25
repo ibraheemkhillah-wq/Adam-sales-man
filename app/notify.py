@@ -13,7 +13,7 @@ log = logging.getLogger(__name__)
 test_log: list[dict] = []
 
 TITLES = {
-    "new_booking": "✅ حجز جديد",
+    "booking_request": "📝 طلب حجز جديد — بانتظار تأكيدكم",
     "hot_lead": "🔥 عميل جاهز للشراء",
     "human_needed": "🙋 عميل يحتاج موظف بشري",
     "complaint": "⚠️ شكوى",

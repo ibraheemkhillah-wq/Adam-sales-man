@@ -59,7 +59,7 @@ class MockERP(ERPBackend):
              req.customer_phone, req.total_price, req.pickup_location, req.dropoff_location, req.notes),
         )
         self._db.commit()
-        return BookingResult(ok=True, booking_ref=ref, message="booking created (mock ERP)")
+        return BookingResult(ok=True, booking_ref=ref, message="booking request recorded; awaiting team confirmation")
 
 
 def _d(v) -> date:
