@@ -9,8 +9,8 @@
   ويوم السبت من الساعة ال10:00 صباحا حتى الساعة 14:30 ظهرا 
   ويوم الأحد عطلة، ونفتح فقط للاستلام والتسليم من الساعة ال14:00 ظهرا حتى الساعة 16:00 عصرا
 - الموقع الالكتروني : https://www.callrent.net/
-- على  مواقع التواصل الاجتماعي facebook & instagram : callrenttr
-
+Instagram: https://www.instagram.com/callrenttr/
+Facebook: https://www.facebook.com/callrenttr
 ## شروط الإيجار
 عميلنا الكريم .....
 اسعد الله اوقاتكم بكل خير ومحبة... 
